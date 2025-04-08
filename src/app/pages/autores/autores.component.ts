@@ -23,11 +23,26 @@ export class AutoresComponent {
   libro = new Libro();
   autorSeleccionado: any = null; // Para almacenar el autor seleccionado
   isModalOpen = false; // Controla si el modal está abierto o cerrado
+  librosCount: { [key: string]: number } = {};  // Objeto para almacenar el conteo de libros por autor
 
   //constructor
   constructor (private autorService:AutorService, private funcionService: FuncionesService){
     this.getAutor();
   }
+
+  // autores: Autor[] = [];  // Usa el tipo Autor aquí
+  // ngOnInit(): void {
+  //   // Obtener los autores
+  //   this.autorService.getAutores().subscribe((data: Autor[]) => {  // Asegúrate de que data sea un arreglo de autores
+  //     this.autores = data;
+      
+  //     // Contar los libros por cada autor
+  //     this.autores.forEach(async (autor: Autor) => {  // Tipamos autor como Autor
+  //       const count = await this.funcionService.contarLibrosPorAutor(autor.id);
+  //       this.librosCount[autor.id] = count;  // Guardar el conteo de libros en el objeto
+  //     });
+  //   });
+  // }
 
   // Método para obtener autores
   async getAutores() {

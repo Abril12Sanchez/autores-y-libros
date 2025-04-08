@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Libro } from '../models/libro.model';
 import { collection, collectionData, deleteDoc, doc, Firestore } from '@angular/fire/firestore';
 import { first} from 'rxjs';
-import { addDoc, getDocs, getFirestore, updateDoc } from 'firebase/firestore';
+import { addDoc, getDocs, getFirestore, query, updateDoc, where } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import { environment } from '../../environments/environment.development';
 // import {db} from './firebase.config';
@@ -19,6 +19,7 @@ export class FuncionesService {
     const firebaseApp = initializeApp(environment.firebaseConfig);
     this.db = getFirestore(firebaseApp);
   }
+
 
   // METODOSPARA LIBROS
   // metodo para obtener todos los documentos de la colección
@@ -79,6 +80,18 @@ export class FuncionesService {
 //   const querySnapshot = await getDocs(q);
 //   return querySnapshot.size;  // El número de libros del autor
 // }
+
+// Método para contar los libros de un autor
+async contarLibrosPorAutor(autorId: string): Promise<number> {
+  const librosCollection = collection(this.db, 'libros');
+  
+  // Filtrar por autorId
+  const q = query(librosCollection, where('id_autor', '==', autorId));
+  
+  const querySnapshot = await getDocs(q);
+  
+  return querySnapshot.size;  // El número de libros que tiene ese autor
+}
 
 
 }

@@ -20,6 +20,7 @@ export class LibrosComponent {
   libros:any;
   libro = new Libro();
   autores: Autor[] = [];  // Lista de autores
+  librosCount: { [key: string]: number } = {};  // Almacenará el conteo de libros por autor
 
   
   //constructor
@@ -27,6 +28,19 @@ export class LibrosComponent {
     this.getLibros();
     this.getAutores();  // Obtén los autore
   }
+
+  ngOnInit(): void {
+    this.autorService.getAutores().subscribe((data: any[]) => {
+      this.autores = data;
+      this.autores.forEach(async (autor) => {
+        // Contamos los libros por cada autor
+        const count = await this.funcionService.contarLibrosPorAutor(autor.id);
+        this.librosCount[autor.id] = count;  // Guardamos el conteo de libros
+      });
+    });
+  }
+
+
 
 //metodo que hace la peticion al service para obtener libros
 async getLibros():Promise<void>{
@@ -87,4 +101,7 @@ clearLibro(){
     this.getLibros();
 
 }
+
+
+
 }
