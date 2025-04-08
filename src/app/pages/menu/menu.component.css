@@ -1,0 +1,25 @@
+.custom-navbar {
+    background: linear-gradient(90deg, #2196f3, #61a4db, #64b5f6);
+    /* Degradado azul */
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #d1ecff !important;
+}
+
+.custom-navbar .btn-danger {
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 6px;
+}

@@ -1,0 +1,131 @@
+<app-menu></app-menu>
+<div style="margin: 20px;">
+    <h1 class="text-center"> Autores 📕👥</h1>
+
+    <!-- Contenedor principal para el formulario y la tabla -->
+    <div class="row">
+        <!-- Formulario de alta de autores a la izquierda -->
+        <div class="col-md-4">
+            <div class="card" style="padding: 20px;">
+                <h4>Alta de autores</h4>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre del autor" [(ngModel)]="autor.nombre" />
+                </div>
+                <div class="form-group">
+                    <label>Apellido Materno</label>
+                    <input type="text" class="form-control" placeholder="Apellido Materno"
+                        [(ngModel)]="autor.ApellidoMaterno" />
+                </div>
+                <div class="form-group">
+                    <label>Apellido Paterno</label>
+                    <input type="text" class="form-control" placeholder="Apellido Paterno"
+                        [(ngModel)]="autor.ApellidoPaterno" />
+                </div>
+                <div class="form-group">
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" placeholder="Fecha Nacimiento"
+                        [(ngModel)]="autor.fechadenacimiento" />
+                </div>
+                <div class="form-group">
+                    <label>Nacionalidad</label>
+                    <input type="text" class="form-control" placeholder="Nacionalidad"
+                        [(ngModel)]="autor.nacionalidad" />
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-primary" (click)="insertarAutor()">Insertar</button>
+                    <button type="button" class="btn btn-warning" (click)="updateAutor()">Actualizar</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteAutor()">Borrar</button>
+                    <button type="button" class="btn btn-success" (click)="clearAutor()">Limpiar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de autores a la derecha -->
+        <div class="col-md-8">
+            <h4>Listado de autores</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido Materno</th>
+                        <th>Apellido Paterno</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Nacionalidad</th>
+                        <th>Seleccionar</th>
+                        <th>Agregar Libro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (autor of autores; track autor.id)
+                    {
+                    <tr>
+                        <!-- <td>{{ autor.id }}</td> -->
+                        <td>{{ autor.nombre }}</td>
+                        <td>{{ autor.ApellidoMaterno }}</td>
+                        <td>{{ autor.ApellidoPaterno }}</td>
+                        <td>{{ autor.fechadenacimiento}}</td>
+                        <td>{{ autor.nacionalidad }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                                (click)="seleccionaAutor(autor)">Seleccionar</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success anade" (click)="selectAutor(autor)">Añadir
+                                Libro</button>
+                        </td>
+                        <!-- Modal para añadir libro -->
+                        <div class="modal" tabindex="-1" [ngClass]="{'d-block': isModalOpen, 'd-none': !isModalOpen}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Alta de libros</h5>
+                                        <button title="cierraModal" type="button" class="btn-close"
+                                            (click)="closeModal()"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="col-sm-12">
+                                            <p>
+                                                <label>Autor</label>
+                                                <input type="text" class="form-control" placeholder="Autor"
+                                                    [value]="autorSeleccionado?.nombre" disabled />
+                                            </p>
+                                            <p>
+                                                <label>Título del libro</label>
+                                                <input type="text" class="form-control" placeholder="Título del libro"
+                                                    [(ngModel)]="libro.titulo" />
+                                            </p>
+                                            <p>
+                                                <label>Editorial del libro</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Editorial del libro" [(ngModel)]="libro.editorial" />
+                                            </p>
+                                            <p>
+                                                <label>Año de publicación del libro</label>
+                                                <input type="text" class="form-control" placeholder="Año"
+                                                    [(ngModel)]="libro.anioPublicacion" />
+                                            </p>
+                                            <p>
+                                                <label>Sinopsis</label>
+                                                <input type="text" class="form-control" placeholder="Sinopsis"
+                                                    [(ngModel)]="libro.sinopsis" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary"
+                                            (click)="insertarLibro()">Insertar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            (click)="closeModal()">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

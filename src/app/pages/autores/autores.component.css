@@ -1,0 +1,145 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.modal.d-block {
+  display: flex;
+  opacity: 1;
+}
+
+.modal.d-none {
+  display: none;
+  opacity: 0;
+}
+
+
+/* Fondo general */
+body {
+  background: linear-gradient(to bottom right, #cceeff, #fbeaff);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 20px;
+}
+
+/* Título principal */
+h1.text-center {
+  color: #5d5dff;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px #c7c7c7;
+}
+
+/* Tarjeta del formulario */
+.card {
+  background-color: #ffffffd6;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 2px dashed #a0c4ff;
+}
+
+/* Etiquetas */
+label {
+  color: #6b6b6b;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Inputs */
+input.form-control {
+  border-radius: 10px;
+  border: 1px solid #d0d0ff;
+  padding: 10px;
+  background-color: #f7faff;
+}
+
+/* Botones del formulario */
+.btn {
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #89CFF0;
+  border-color: #89CFF0;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: #FFD6A5;
+  border-color: #FFD6A5;
+  color: #333;
+}
+
+.btn-danger {
+  background-color: #FFADAD;
+  border-color: #FFADAD;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #CAFFBF;
+  border-color: #CAFFBF;
+  color: #333;
+}
+
+/* Tabla */
+.table {
+  background-color: #ffffffd6;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #a0c4ff;
+  color: #333;
+}
+
+.table tbody tr:hover {
+  background-color: #e0f7ff;
+  transition: background-color 0.3s ease;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 20px;
+  background-color: #fff0f5;
+  border: 2px solid #cdb4db;
+}
+
+.modal-header {
+  background-color: #cde7f0;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-footer {
+  background-color: #f0f4ff;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: #5d5dff;
+}
+
+.btn-close {
+  background-color: #f9c6c9;
+  border-radius: 50%;
+}
+
+.anade {
+  background-color: #ef77dd;
+  border-radius: 15%;
+}

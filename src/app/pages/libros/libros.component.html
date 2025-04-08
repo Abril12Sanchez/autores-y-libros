@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+<div style="margin: 20px; text-align: center;">
+    <h1>Catálogo de Libros 📚</h1>
+
+    <div class="row">
+        <!-- Tabla (derecha) -->
+        <div class="col-md-8">
+            <hr />
+            <h4>Listado de libros</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Autor</th>
+                        <th>Titulo</th>
+                        <th>Editorial</th>
+                        <th>Año publicación</th>
+                        <th>Sinopsis</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Manteniendo el ciclo 'for' como lo tenías -->
+                    @for (libro of libros; track libro.id)
+                    {
+                    <tr>
+                        <td>{{obtenerNombreAutor(libro.id_autor)}}</td>
+                        <td>{{libro.titulo}}</td>
+                        <td>{{libro.editorial}}</td>
+                        <td>{{libro.anioPublicacion}}</td>
+                        <td>{{libro.sinopsis}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                                (click)="selectLibro(libro)">Seleccionar</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Formulario (izquierda) -->
+        <div class="col-md-4">
+            <div class="card mx-auto" style="padding: 20px;">
+                <h4>Alta de libros</h4>
+                <div class="col-sm-12">
+                    <p>
+                        <label>Autor</label>
+                        <input type="text" class="form-control" placeholder="Autor" [(ngModel)]="libro.id_autor"
+                            disabled />
+                    </p>
+                    <p>
+                        <label>Título del libro</label>
+                        <input type="text" class="form-control" placeholder="Titulo del libro"
+                            [(ngModel)]="libro.titulo" />
+                    </p>
+                    <p>
+                        <label>Editorial del libro</label>
+                        <input type="text" class="form-control" placeholder="Editorial del libro"
+                            [(ngModel)]="libro.editorial" />
+                    </p>
+                    <p>
+                        <label>Año de publicación del libro</label>
+                        <input type="text" class="form-control" placeholder="Año "
+                            [(ngModel)]="libro.anioPublicacion" />
+                    </p>
+                    <p>
+                        <label>Sinopsis</label>
+                        <input type="text" class="form-control" placeholder="Año " [(ngModel)]="libro.sinopsis" />
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap mt-1">
+                    <!-- <button type="button" class="btn btn-primary m-1" (click)="this.insertarLibro()">Insertar</button> -->
+                    <button type="button" class="btn btn-warning m-1" (click)="this.updateLibro()">Actualizar</button>
+                    <button type="button" class="btn btn-danger m-1" (click)="this.deleteLibro()">Borrar</button>
+                    <button type="button" class="btn btn-success m-1" (click)="this.clearLibro()">Limpiar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

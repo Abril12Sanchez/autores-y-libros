@@ -1,0 +1,164 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc;
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h4 {
+    color: #2b6fb5;
+    /* Azul pastel */
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el contenedor principal */
+div.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las tarjetas */
+.card {
+    background-color: #e8f4fa;
+    /* Fondo pastel azul */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card h4 {
+    color: #4a90e2;
+    /* Azul más oscuro */
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+/* Estilos para las tablas */
+.table {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.table thead {
+    background-color: #a7c7f2;
+    /* Azul suave para el encabezado */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f8ff;
+    /* Fondo muy claro para las filas impares */
+}
+
+.table tbody tr:hover {
+    background-color: #d1e7ff;
+    /* Resaltado de fila al pasar el ratón */
+}
+
+/* Botones */
+.btn {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 8px 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #66c4a6;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #4bae8e;
+}
+
+.btn-warning {
+    background-color: #f9c74f;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #f7b500;
+}
+
+.btn-danger {
+    background-color: #f94144;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e63946;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* Estilo de los inputs */
+input.form-control {
+    border-radius: 8px;
+    border: 1px solid #b0d1f4;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input.form-control:focus {
+    border-color: #66c4a6;
+    box-shadow: 0 0 5px rgba(102, 196, 166, 0.5);
+}
+
+/* Layout de columnas */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-md-8 {
+    flex: 0 0 65%;
+}
+
+.col-md-4 {
+    flex: 0 0 30%;
+}
+
+/* Asegurar que los botones y inputs estén alineados bien */
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.m-1 {
+    margin: 5px;
+}
+
+/* Márgenes generales */
+.mt-1 {
+    margin-top: 10px;
+}
